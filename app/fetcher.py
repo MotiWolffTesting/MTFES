@@ -72,7 +72,7 @@ class DataFetcher:
         
         except Exception as e:
             print(f"Error fetching data: {e}")
-            return pd.DataFrame
+            return pd.DataFrame()
         finally:
             if self.client:
                 self.client.close()

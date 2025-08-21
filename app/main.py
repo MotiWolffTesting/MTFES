@@ -23,7 +23,7 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-app.get("/data")
+@app.get("/data")
 async def get_data():
     "Get processed data"
     try:
@@ -41,7 +41,7 @@ async def get_data():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
     
-app.get("/refresh")
+@app.get("/refresh")
 async def refresh_data():
     "Refresh data from database"
     try:
