@@ -1,0 +1,62 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mtfes
+  namespace: motiwolff-dev
+  uid: 73fcd078-b12e-4a29-8e25-962ac04b972d
+  resourceVersion: '4205742201'
+  creationTimestamp: '2025-08-21T11:12:24Z'
+  labels:
+    app: mtfes
+    app.kubernetes.io/component: mtfes
+    app.kubernetes.io/instance: mtfes
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T11:12:24Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8000,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.30.197.13
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 8000-tcp
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.30.197.13
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    deployment: mtfes
+status:
+  loadBalancer: {}

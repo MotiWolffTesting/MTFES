@@ -1,0 +1,64 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: mtfes
+  namespace: motiwolff-dev
+  uid: dc6c40ca-1d71-418a-acf7-68c49c1e3cee
+  resourceVersion: '4206274887'
+  creationTimestamp: '2025-08-21T11:48:39Z'
+  labels:
+    app: mtfes
+    app.kubernetes.io/component: mtfes
+    app.kubernetes.io/instance: mtfes
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-21T11:48:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-21T11:48:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: mtfes-motiwolff-dev.apps.rm3.7wse.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: mtfes
+    weight: 100
+  port:
+    targetPort: 8000-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: mtfes-motiwolff-dev.apps.rm3.7wse.p1.openshiftapps.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-08-21T11:48:39Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps.rm3.7wse.p1.openshiftapps.com

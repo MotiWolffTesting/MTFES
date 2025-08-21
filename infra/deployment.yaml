@@ -1,0 +1,294 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: mtfes-7f7d667f69-
+  annotations:
+    k8s.ovn.org/pod-networks: '{"default":{"ip_addresses":["10.128.7.79/23"],"mac_address":"0a:58:0a:80:07:4f","gateway_ips":["10.128.6.1"],"routes":[{"dest":"10.128.0.0/14","nextHop":"10.128.6.1"},{"dest":"172.30.0.0/16","nextHop":"10.128.6.1"},{"dest":"169.254.0.5/32","nextHop":"10.128.6.1"},{"dest":"100.64.0.0/16","nextHop":"10.128.6.1"}],"ip_address":"10.128.7.79/23","gateway_ip":"10.128.6.1","role":"primary"}}'
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "ovn-kubernetes",
+          "interface": "eth0",
+          "ips": [
+              "10.128.7.79"
+          ],
+          "mac": "0a:58:0a:80:07:4f",
+          "default": true,
+          "dns": {}
+      }]
+    kubectl.kubernetes.io/restartedAt: '2025-08-21T12:14:21Z'
+    kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for container mtfes; cpu, memory limit for container mtfes'
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '4206673072'
+  name: mtfes-7f7d667f69-vbmn6
+  uid: f3875142-32a7-4999-a4e5-d080143b2f63
+  creationTimestamp: '2025-08-21T12:14:21Z'
+  managedFields:
+    - manager: ip-10-0-33-24
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T12:14:21Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.ovn.org/pod-networks': {}
+      subresource: status
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T12:14:21Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/restartedAt': {}
+            'f:openshift.io/generated-by': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:deployment': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"b65c45b6-0e7d-44b0-82ee-a6ec1b3b4e52"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"mtfes"}':
+              'f:image': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:env':
+                .: {}
+                'k:{"name":"DB_NAME"}':
+                  .: {}
+                  'f:name': {}
+                  'f:valueFrom':
+                    .: {}
+                    'f:configMapKeyRef': {}
+                'k:{"name":"MONGODB_URI"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8000,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: multus-daemon
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T12:14:22Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T12:14:30Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"PodReadyToStartContainers"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:hostIPs': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.128.7.79"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: motiwolff-dev
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: mtfes-7f7d667f69
+      uid: b65c45b6-0e7d-44b0-82ee-a6ec1b3b4e52
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    deployment: mtfes
+    pod-template-hash: 7f7d667f69
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-ss6v9
+  priority: -3
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: ip-10-0-33-24.ec2.internal
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c77,c49'
+    fsGroup: 1005950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: '1'
+          memory: 1000Mi
+        requests:
+          cpu: 10m
+          memory: 64Mi
+      terminationMessagePath: /dev/termination-log
+      name: mtfes
+      env:
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: mtfes-config
+              key: DB_NAME
+        - name: MONGODB_URI
+          value: 'mongodb+srv://IRGC:iraniraniran@iranmaldb.gurutam.mongodb.net/?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000'
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1005950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - containerPort: 8000
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: kube-api-access-xxh7l
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: 'docker.io/motiwolff/mtfes:nltk-dns'
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-xxh7l
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: sandbox-users-pods
+status:
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: mtfes
+      state:
+        running:
+          startedAt: '2025-08-21T12:14:29Z'
+      volumeMounts:
+        - name: kube-api-access-xxh7l
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          readOnly: true
+          recursiveReadOnly: Disabled
+      imageID: 'docker.io/motiwolff/mtfes@sha256:af8aad663f3c96bc08991825df2db3e3f30bce2a23cec9f4707b2edf1f9e1895'
+      image: 'docker.io/motiwolff/mtfes:nltk-dns'
+      lastState: {}
+      containerID: 'cri-o://03a8b702dbeb3ea6c5a7c580977588066b02b71f29a71fab8d4a1ef7f2a68b13'
+  qosClass: Burstable
+  hostIPs:
+    - ip: 10.0.33.24
+  podIPs:
+    - ip: 10.128.7.79
+  podIP: 10.128.7.79
+  hostIP: 10.0.33.24
+  startTime: '2025-08-21T12:14:21Z'
+  conditions:
+    - type: PodReadyToStartContainers
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2025-08-21T12:14:30Z'
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2025-08-21T12:14:21Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2025-08-21T12:14:30Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2025-08-21T12:14:30Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2025-08-21T12:14:21Z'
+  phase: Running
