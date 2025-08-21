@@ -4,12 +4,22 @@ WORKDIR /app
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    gcc curl \
+    gcc curl ca-certificates \
+    && update-ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Pre-download NLTK resources to avoid runtime downloads
+ENV NLTK_DATA=/usr/local/share/nltk_data
+RUN mkdir -p "$NLTK_DATA" && \
+    python - <<'PY'
+import nltk
+nltk.download('vader_lexicon', download_dir='/usr/local/share/nltk_data')
+nltk.download('punkt', download_dir='/usr/local/share/nltk_data')
+PY
 
 # Copy application code
 COPY app/ ./app/
