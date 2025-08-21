@@ -1,0 +1,22 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mtfes-config
+  namespace: motiwolff-dev
+  uid: d33d5fbf-3cb1-42cb-8451-e80cb2a7db2c
+  resourceVersion: '4205733692'
+  creationTimestamp: '2025-08-21T11:11:00Z'
+  managedFields:
+    - manager: kubectl-create
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-21T11:11:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:DB_NAME': {}
+          'f:MONGODB_URI': {}
+data:
+  DB_NAME: IranMalDB
+  MONGODB_URI: 'mongodb+srv://IRGC:iraniraniran@iranmaldb.gurutam.mongodb.net/'
