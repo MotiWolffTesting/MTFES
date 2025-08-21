@@ -29,7 +29,7 @@ class TextProcessor:
         
     def find_rarest_word(self, text):
         "Find rarest word in the text"
-        if not text and not isinstance(text, str):
+        if not text or not isinstance(text, str):
             return ""
         
         # Clean text
@@ -48,7 +48,7 @@ class TextProcessor:
     
     def analyze_sentiment(self, text):
         "Analyze sentiment of the text"
-        if not text and not isinstance(text, str):
+        if not text or not isinstance(text, str):
             return ""
         
         try:
@@ -67,7 +67,7 @@ class TextProcessor:
         
     def detect_weapons(self, text):
         "Detect weapons from blacklist in the text"
-        if not text and not isinstance(text, str):
+        if not text or not isinstance(text, str):
             return ""
         
         text_lower = text.lower()
